@@ -1,21 +1,16 @@
 <div class="container">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" style="background-color: #701c1c;">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header" >
-        <img src="./assets/images/logo.png" style="height:50px;">
+      <div class="navbar-brand" style="color:#fff; font-size:30px;padding-top:24px;">5.Score</div>
+      <div class="navbar-header" style="float:right; ">
+        <img src="assets/images/mountain.jpg" style="height:70px; margin-right:15px;">
       </div>
       
     </div>
   </nav>
-  <ul class="nav nav-tabs">
-    <li role="tab" data-toggle="tab" class="active"><a routerLink="/">Login</a></li>
-    <li role="tab" data-toggle="tab"><a routerLink="/gyms">Gyms</a></li>
-    <li role="tab" data-toggle="tab"><a routerLink="/goals">Goals</a></li>
-    <li role="tab" data-toggle="tab"><a routerLink="/accounts">Accounts</a></li>
-    <li role="tab" data-toggle="tab"><a routerLink="/investments">Investments</a></li>
-  </ul>
-  <div class="container" style="border: 1px solid #ddd; border-top: 0px; max-width: 100%; ">
+  
+  <div class="container" style="border: 1px solid #ddd; max-width: 100%; height: calc(100vh - 110px); padding:0px;">
     <router-outlet></router-outlet>
   </div>
   

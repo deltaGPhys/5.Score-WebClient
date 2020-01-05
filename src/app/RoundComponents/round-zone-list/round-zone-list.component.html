@@ -1,0 +1,19 @@
+<h4>Zones</h4>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="zones">
+        <tr *ngFor="let zone of zones">
+            <th scope="row" *ngIf="zone">{{ zone.id }}</th>
+            <td>
+                <a (click)="zoneChoice(zone.id)">{{zone.name}}</a>
+            </td>
+            
+        </tr>
+    </tbody>
+    </table>

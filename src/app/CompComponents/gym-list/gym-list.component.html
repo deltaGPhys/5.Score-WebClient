@@ -1,0 +1,29 @@
+<div class="form-group form-inline" >
+
+    <form>
+        <span style="float:right;"><input class="form-control ml-2" type="text" [formControl]="filter" #gymSearchInput (click)="gymSearchInput.select()"/></span>
+    </form>
+    
+</div>
+<br>
+
+<h3 style="float:left;">Gyms</h3>
+
+<table class="table table-striped">
+<thead>
+<tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let gym of gyms$ | async">
+    <th scope="row">{{ gym.id }}</th>
+    <td>
+        <a routerLink="/complist/{{gym.id}}"><ngb-highlight [result]="gym.name" [term]="filter.value"></ngb-highlight></a>
+    </td>
+    
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,32 @@
+
+
+    <div class="form-group form-inline" >
+        <a routerLink="/complist/{{selectedGym.id}}" style="float:left;" *ngIf="selectedGym">Back to Competitions</a>
+
+        <form>
+            <span style="float:right;"><input class="form-control ml-2" type="text" [formControl]="filter" #roundSearchInput (click)="roundSearchInput.select()"/></span>
+        </form>
+    </div>
+    <br>
+
+    <h4 *ngIf="selectedGym">{{selectedGym.name}}</h4>
+    <h3 *ngIf="selectedComp">Competition Rounds: {{selectedComp.name}}</h3>
+    
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let round of rounds$ | async">
+                <th scope="row" *ngIf="round">{{ round.id }}</th>
+                <td>
+                    <a routerLink="/round/{{round.id}}"><ngb-highlight [result]="round.name" [term]="filter.value"></ngb-highlight></a>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>

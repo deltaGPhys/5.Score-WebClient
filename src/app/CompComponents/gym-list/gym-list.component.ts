@@ -2,10 +2,11 @@ import { Component, OnInit, PipeTransform } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { DecimalPipe } from '@angular/common';
 
-import { Gym } from '../models/gym';
+import { Gym } from '../../models/gym';
 
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { GymService } from '../../services/gym.service';
 
 @Component({
   selector: 'app-gym-list',
@@ -16,17 +17,23 @@ import { map, startWith } from 'rxjs/operators';
 export class GymListComponent implements OnInit {
 
   gyms$: Observable<Gym[]>;
-  gymList: Gym[] = [new Gym(1,"Delaware Rock Gym"), new Gym(2,"Earth Treks"), new Gym(3,"Philadelphia Rock Gym Wyncote"), new Gym(4,"Philadelphia Rock Gym Oaks")];
-  filter = new FormControl('');
+  gymList: Gym[] = [];
+  filter = new FormControl('Search');
 
-  constructor(pipe: DecimalPipe) {
-    this.gyms$ = this.filter.valueChanges.pipe(
-      startWith(''),
-      map(text => this.search(text, pipe))
-    );
+  constructor(pipe: DecimalPipe, private gymService: GymService) {
+    this.gymService.getAllGyms()
+      .subscribe(data => {
+        this.gymList = data;
+        this.gyms$ = this.filter.valueChanges.pipe(
+          startWith(''),
+          map(text => this.search(text, pipe))
+        );
+      });
+    
   }
 
   ngOnInit() {
+    
   }
   
   search(text: string, pipe: PipeTransform): Gym[] {

@@ -1,0 +1,21 @@
+<p>score-container works!</p>
+<div class="form-group form-inline" >
+    <a routerLink="/roundlist/{{selectedComp.id}}-{{selectedGym.id}}" style="float:left;" *ngIf="selectedGym">Back to Rounds</a>
+</div>
+<br>
+
+<h4 *ngIf="selectedGym">{{selectedGym.name}}</h4>
+<h3 *ngIf="selectedComp && selectedRound">Competition Round: {{selectedComp.name}}: {{selectedRound.name</h3>
+<div class="custom-control custom-switch">
+    Results
+    <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
+    <label class="custom-control-label" for="customSwitch1">Edit</label>
+</div>
+  
+<div class="box" style="display:flex; flex-flow:column; height:100%;">
+    <div class="row" style="height:">
+        <div class="col-8">col-8</div>
+        <div class="col-4">col-4</div>
+    </div>
+</div>
+

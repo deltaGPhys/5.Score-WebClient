@@ -1,0 +1,20 @@
+
+<div style="width: calc(100%); border: 1px solid #ddd; ">
+    <app-round-view></app-round-view>
+</div>
+
+
+<div class="box" style="height: calc(100% - (150px)); ">
+    <div class="row" style="height:100%; margin:0px;">
+        <div class="col-md-8" style="border: 1px solid #ddd; height:100%;" [ngSwitch]="peopleWindow">
+            <app-round-climbers-list *ngSwitchCase="'climberList'"></app-round-climbers-list>
+            <app-round-climber-view *ngSwitchCase="'climberDetail'"></app-round-climber-view>
+        </div>
+        <div class="col-md-4" style="border: 1px solid #ddd; height:100%;" [ngSwitch]="zoneWindow">
+            <app-round-zone-list *ngSwitchCase="'zoneList'"></app-round-zone-list>
+            <app-round-route-list *ngSwitchCase="'routeList'"></app-round-route-list>
+            <app-round-route-view *ngSwitchCase="'routeDetail'"></app-round-route-view>
+        </div>
+    </div>
+</div>
+

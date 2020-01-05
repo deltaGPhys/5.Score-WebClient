@@ -1,0 +1,30 @@
+<form>
+    <span style="float:right;"><input class="form-control ml-2" type="text" [formControl]="filter" #climberSearchInput (click)="climberSearchInput.select()"/></span>
+</form>
+<h4>Climbers</h4>
+
+<div class="tablediv">
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="climbers">
+            <tr *ngFor="let climber of climbers$ | async">
+                <th scope="row" *ngIf="climber"><ngb-highlight [result]="climber.id" [term]="filter.value"></ngb-highlight></th>
+                <td>
+                    <a (click)="climberChoice(climber.id)"><ngb-highlight [result]="climber.firstName" [term]="filter.value"></ngb-highlight></a>
+                </td>
+                <td>
+                    <a (click)="climberChoice(climber.id)"><ngb-highlight [result]="climber.lastName" [term]="filter.value"></ngb-highlight></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
