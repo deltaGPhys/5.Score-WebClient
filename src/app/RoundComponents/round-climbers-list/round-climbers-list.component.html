@@ -1,7 +1,8 @@
+
 <form>
     <span style="float:right;"><input class="form-control ml-2" type="text" [formControl]="filter" #climberSearchInput (click)="climberSearchInput.select()"/></span>
 </form>
-<h4>Climbers</h4>
+<h4>Climbers  <a (click)="toJudges()"><span style="font-size:x-small;">(Judges)</span></a></h4>
 
 <div class="tablediv">
     

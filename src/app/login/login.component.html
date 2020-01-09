@@ -1,1 +1,73 @@
-<p>login works!</p>
+<div class="container" style="text-align:center; ">
+    
+    <div class="box" style="margin-top: 30px; width: 370px; display:inline-block; ">
+        <span class="loginHeader"><p><strong>Login</strong></p></span>
+        <ngb-accordion [closeOthers]="true" >
+            <ngb-panel id="climber">
+                <ng-template ngbPanelTitle style="width:100%;" >  
+                    <span style="float:left;" >Climbers</span> 
+                </ng-template>
+                <ng-template ngbPanelContent >
+                    <form class="loginForm" [formGroup]="climberLoginForm" (ngSubmit)="onClimberSubmit()" style=" text-align:left; ">
+                        <label for="climberId">Climber ID number</label>
+                        <input type="number" formControlName = "id" class="form-control" id="climberId"  style="width:250px;">
+                        <label>or...</label>
+                        <div class="form-group">
+                            <label for="climberEmail">Email address</label>
+                            <input type="email" formControlName = "email" class="form-control" id="climberEmail" style="width:250px;">
+                        </div>
+                        <div *ngIf="invalidLogin" class="alert alert-danger"> 
+                            *The email or id you have entered is invalid!
+                            </div> 
+                
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel id="judge">
+                <ng-template ngbPanelTitle style="width:100%;" >  
+                    <span style="float:left;" >Judges</span> 
+                </ng-template>
+                <ng-template ngbPanelContent >
+                    <form class="loginForm" [formGroup]="judgeLoginForm" (ngSubmit)="onJudgeSubmit()" style=" text-align:left; ">
+                        <label for="judgeName">Name</label>
+                        <input type="name" formControlName = "name" class="form-control" id="judgeName"  style="width:250px;">
+                        
+                        <div class="form-group">
+                        <label for="judgePassword">Password</label>
+                        <input type="password" formControlName = "password" class="form-control" id="judgePassword" style="width:250px;">
+                        </div>
+                        <div *ngIf="invalidLogin" class="alert alert-danger"> 
+                            *The username or password you have entered is invalid!
+                            </div> 
+                
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        
+                    </form>
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel id="admin">
+                <ng-template ngbPanelTitle style="width:100%;" >  
+                    <span style="float:left;" >Admin</span> 
+                </ng-template>
+                <ng-template ngbPanelContent >
+                    <form class="loginForm" [formGroup]="adminLoginForm" (ngSubmit)="onAdminSubmit()" style=" text-align:left; ">
+                        <label for="loginInputEmail1">Email address</label>
+                        <input type="email" formControlName = "email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" required placeholder="Enter email" style="width:250px;">
+                        
+                        <div class="form-group">
+                        <label for="loginInputPassword">Password</label>
+                        <input type="password" formControlName = "password" class="form-control" id="inputPassword1" required placeholder="Password" style="width:250px;">
+                        </div>
+                        <div *ngIf="invalidLogin" class="alert alert-danger"> 
+                            *The username or password you have entered is invalid!
+                            </div> 
+                
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        
+                    </form>
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </div>
+</div>

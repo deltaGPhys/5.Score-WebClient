@@ -1,10 +1,11 @@
 
-
-    <div class="form-group form-inline" >
+<div class="container boundingBox" >
+    
         <a routerLink="/complist/{{selectedGym.id}}" style="float:left;" *ngIf="selectedGym">Back to Competitions</a>
-
+    
+    <div class="form-group form-inline" style="float:right;">
         <form>
-            <span style="float:right;"><input class="form-control ml-2" type="text" [formControl]="filter" #roundSearchInput (click)="roundSearchInput.select()"/></span>
+            <input class="form-control ml-2" type="text" [formControl]="filter" #roundSearchInput (click)="roundSearchInput.select()"/>
         </form>
     </div>
     <br>
@@ -30,3 +31,4 @@
             </tr>
         </tbody>
     </table>
+</div>

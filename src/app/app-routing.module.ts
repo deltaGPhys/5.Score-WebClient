@@ -10,7 +10,7 @@ import { ScoreContainerComponent } from './ScoreComponents/score-container/score
 
 const routes: Routes = [
     //{ path: '', component: LoginComponent },
-    { path: '', component: GymListComponent },
+    { path: '', component: LoginComponent },
     { path: 'gyms', component: GymListComponent },
     { path: 'complist/:gymId', component: CompListComponent },
     { path: 'roundlist/:compId/:gymId', component: RoundListComponent },

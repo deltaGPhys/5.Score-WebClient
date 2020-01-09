@@ -1,22 +1,21 @@
 import { Injectable, Inject } from '@angular/core';
 import { environment } from 'src/environments/environment';import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Zone } from '../models/zone';
 import { tap, catchError } from 'rxjs/operators';
 import { CompetitionRound } from '../models/competition-round';
 import { RoundService } from './round.service';
-import { Climber } from '../models/climber';
+import { Judge } from '../models/judge';
  export const apiUrl = environment.apiUrl;
-
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClimberService {
+export class JudgeService {
+
   @Inject(apiUrl) private apiUrl: string;
-  private climberUrl: string = apiUrl+"/climbers";
-  selectedClimber$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
-  climbers$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  private judgeUrl: string = apiUrl+"/judges";
+  selectedJudge$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  judges$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
   selectedRound: CompetitionRound;
 
   httpOptions = {
@@ -24,32 +23,32 @@ export class ClimberService {
   };
 
   constructor(private http: HttpClient, private roundService: RoundService) {
-    this.roundService.selectedRound$.subscribe(data => {this.selectedRound = data; this.updateClimbers(this.selectedRound.id);});
+    this.roundService.selectedRound$.subscribe(data => {this.selectedRound = data; this.updateJudges(this.selectedRound.id);});
   }
 
-  /** GET all Climbers for a compRound from the server */
-  getAllClimbers(compRoundId: number): Observable<Climber[]> {
-    return this.http.get<Climber[]>(this.climberUrl+"/round/"+compRoundId)
+  /** GET all Judges for a compRound from the server */
+  getAllJudges(compRoundId: number): Observable<Judge[]> {
+    return this.http.get<Judge[]>(this.judgeUrl+"/round/"+compRoundId)
       .pipe(
         
-        catchError(this.handleError<Climber[]>('getClimbers'))
+        catchError(this.handleError<Judge[]>('getJudges'))
       )
   }
 
-  /** GET one Climber from the server */
-  getClimber(climberId: number): Observable<Climber> {
-    return this.http.get<Climber>(this.climberUrl+"/"+climberId);
+  /** GET one Judge from the server */
+  getJudge(judgeId: number): Observable<Judge> {
+    return this.http.get<Judge>(this.judgeUrl+"/"+judgeId);
   }
 
-  /** Change the selectedClimber variable */
-  chooseClimber(id: number) {
-    this.getClimber(id).subscribe(data => this.selectedClimber$.next(data));
+  /** Change the selectedJudge variable */
+  chooseJudge(id: number) {
+    this.getJudge(id).subscribe(data => this.selectedJudge$.next(data));
   }
 
-  /** Update the Climbers variable when selectedRound is changed */
-  updateClimbers(roundId: number) {
+  /** Update the Judges variable when selectedRound is changed */
+  updateJudges(roundId: number) {
     if (roundId != null) {
-      this.getAllClimbers(this.selectedRound.id).subscribe(data => this.climbers$.next(data));
+      this.getAllJudges(this.selectedRound.id).subscribe(data => this.judges$.next(data));
     }
   }
 

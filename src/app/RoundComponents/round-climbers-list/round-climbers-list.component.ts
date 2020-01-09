@@ -37,6 +37,15 @@ export class RoundClimbersListComponent implements OnInit {
   ngOnInit() {
   }
 
+  toJudges() {
+    this.roundService.changePeopleWindow("judgeList");
+  }
+
+  climberChoice(climberId: number) {
+    this.climberService.chooseClimber(climberId);
+    this.roundService.changePeopleWindow("climberView");
+  }
+
   search(text: string, pipeT: PipeTransform): Climber[] {
     return this.climbers.filter(climber => {
       const term = text.toLowerCase();

@@ -1,0 +1,43 @@
+.loginHeader {
+    color: #fff;
+    font-size: medium;
+    text-align: left;
+}
+
+::ng-deep .card-header {
+    background-color: #701c1c;
+    
+}
+
+::ng-deep .loginForm {
+    background-color: #36b2d8;
+    text-align: left;
+    padding: 10px;
+}
+
+::ng-deep .card button{
+    color: #fff;
+    font-size: medium;
+    background-color: #701c1c;
+}
+
+::ng-deep .card-body{
+    padding: 0;
+}
+
+::ng-deep .card-header button:focus {
+    color: #36b2d8;
+    font-size: medium;
+    font-style: bold;
+    box-shadow: none;
+    background-image: none;
+    outline: 0;
+}
+
+::ng-deep .card-header button:hover {
+    color: #36b2d8;
+    font-size: medium;
+    
+    box-shadow: none;
+
+}

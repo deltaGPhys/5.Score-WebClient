@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Climber } from 'src/app/models/climber';
+import { ClimberService } from 'src/app/services/climber.service';
+import { RoundService } from 'src/app/services/round.service';
 
 @Component({
   selector: 'app-round-climber-view',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoundClimberViewComponent implements OnInit {
 
-  constructor() { }
+  private selectedClimber: Climber = null;
+  
+  constructor(private climberService: ClimberService, private roundService: RoundService) {
+    this.climberService.selectedClimber$
+      .subscribe(data => {
+        this.selectedClimber = data; 
+      });
+  }
 
   ngOnInit() {
+    
+    this.roundService.changePeopleWindow("climberView");
+  }
+
+  goBack() {
+    this.roundService.changePeopleWindow("climberList");
   }
 
 }

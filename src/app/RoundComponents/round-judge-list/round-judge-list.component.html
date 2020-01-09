@@ -1,1 +1,31 @@
-<p>round-judge-list works!</p>
+<form>
+    <span style="float:right;"><input class="form-control ml-2" type="text" [formControl]="filter" #judgeSearchInput (click)="judgeSearchInput.select()"/></span>
+</form>
+<h4>Judges  <a (click)="toClimbers()"><span style="font-size:x-small;">(Climbers)</span></a></h4>
+
+<div class="tablediv">
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Password</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="judges">
+            <tr *ngFor="let judge of judges$ | async">
+                <th scope="row" *ngIf="judge"><ngb-highlight [result]="judge.id" [term]="filter.value"></ngb-highlight></th>
+                <td>
+                    <a (click)="judgeChoice(judge.id)"><ngb-highlight [result]="judge.name" [term]="filter.value"></ngb-highlight></a>
+                </td>
+                <td>
+                    {{judge.password}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+

@@ -1,1 +1,12 @@
-<p>round-climber-view works!</p>
+<a (click)="goBack()">Back to Climbers</a>
+<br>
+<br>
+
+<div *ngIf="selectedClimber">
+    <label>Name: </label> {{selectedClimber.firstName}} {{selectedClimber.lastName}}<br>
+    <label>Id #: </label> {{selectedClimber.id}}<br>
+    <ngx-qrcode qrc-class="'canvas'" [qrc-value] = "selectedClimber.code" qrc-errorCorrectionLevel = "L">
+    </ngx-qrcode>
+    
+
+</div>  

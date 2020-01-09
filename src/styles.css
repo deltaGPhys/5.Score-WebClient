@@ -1,6 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
 html,
 body {
   height: 100%;
   margin: 0
 }
+
+body {
+  background-image: url(assets/images/background.jpg); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+}
+
+div .container .boundingBox {
+  width: calc(100%-20px);
+  background-color:#fff;
+  padding: 10px;
+  height: 100%;
+  margin: 0px;
+}
+
+div .container .flush {
+  width: calc(100%+20px);
+}
+
+.modal-body {
+    overflow-y: auto !important;
+}
+
+.box {
+    border:1px black solid; 
+    border-radius:5px;
+    
+    padding: 15px; 
+    color: #fff;
+    background-color: #701c1c; 
+    box-shadow: 0 0 5px 5px rgba(112,29,29,0.6);
+    /* rgba(112,29,29,0.6)
+    #701c1c */
+}
+
+table a:not(.btn),
+.table a:not(.btn) {
+     color:  #36b2d8;
+     cursor: pointer;
+}
+
+
