@@ -27,4 +27,10 @@
 <button (click)="addClimber(2)">Add Climber (test)</button>
 <button (click)="nextClimber()">Next Climber (test)</button>
 
+<div style="width:50%; height:200px;">
+    <zxing-scanner (scanSuccess)="onCodeResult($event)"></zxing-scanner>
+</div>
+<div *ngIf="qrResultString">
+    <h2>{{qrResultString}}</h2>
+</div>
 

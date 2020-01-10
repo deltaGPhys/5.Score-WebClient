@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 import { AppComponent } from './app.component';
 import { GymListComponent } from './CompComponents/gym-list/gym-list.component';
@@ -61,6 +62,7 @@ import { ScoringPaneComponent } from './JudgeComponents/scoring-pane/scoring-pan
     FormsModule,
     ReactiveFormsModule,
     NgxQRCodeModule,
+    ZXingScannerModule,
   ],
   providers: [GymService],
   bootstrap: [AppComponent]

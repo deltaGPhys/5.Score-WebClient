@@ -26,11 +26,13 @@ export class JudgingService {
 
   addToQueue(climberId: number) {
     //Todo: take this out
-    climberId = Math.floor(Math.random() * 19) + 1;
+    //climberId = Math.floor(Math.random() * 19) + 1;
     this.climberService.getClimber(climberId)
       .subscribe(climber => {
-        this.queue.push(climber);
-        this.queue$.next(this.queue);
+        if (this.queue.length == 0 || this.queue[this.queue.length-1].id != climber.id) {
+          this.queue.push(climber);
+          this.queue$.next(this.queue);
+        }
       });
   }
 
