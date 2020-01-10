@@ -1,4 +1,7 @@
 
+<!-- <button (click)="addClimber(2)">Add Climber (test)</button>&nbsp;&nbsp; -->
+<button (click)="nextClimber()">Next Climber</button>
+
 <div class="tablediv">
     
     <table class="table table-striped">
@@ -24,11 +27,12 @@
 
 </div>
 
-<button (click)="addClimber(2)">Add Climber (test)</button>
-<button (click)="nextClimber()">Next Climber (test)</button>
 
-<div style="width:50%; height:200px;">
-    <zxing-scanner (scanSuccess)="onCodeResult($event)"></zxing-scanner>
+<br>
+
+<div style="text-align: center;">
+    <div style="width:50%; height:200px; display:inline-block;">
+        <zxing-scanner (scanSuccess)="onCodeResult($event)"></zxing-scanner>
+    </div>
 </div>
-
 
