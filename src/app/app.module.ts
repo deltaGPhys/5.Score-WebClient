@@ -24,6 +24,10 @@ import { ScoreListComponent } from './ScoreComponents/score-list/score-list.comp
 import { ClimberScoreViewComponent } from './ScoreComponents/climber-score-view/climber-score-view.component';
 import { ScoreContainerComponent } from './ScoreComponents/score-container/score-container.component';
 import { RoundContainerComponent } from './RoundComponents/round-container/round-container.component';
+import { JudgeContainerComponent } from './JudgeComponents/judge-container/judge-container.component';
+import { JudgeViewComponent } from './JudgeComponents/judge-view/judge-view.component';
+import { QueueListComponent } from './JudgeComponents/queue-list/queue-list.component';
+import { ScoringPaneComponent } from './JudgeComponents/scoring-pane/scoring-pane.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import { RoundContainerComponent } from './RoundComponents/round-container/round
     ScoreListComponent,
     ClimberScoreViewComponent,
     ScoreContainerComponent,
-    RoundContainerComponent
+    RoundContainerComponent,
+    JudgeContainerComponent,
+    JudgeViewComponent,
+    QueueListComponent,
+    ScoringPaneComponent
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,7 @@ import { RoundService } from 'src/app/services/round.service';
 })
 export class RoundClimberViewComponent implements OnInit {
 
-  private selectedClimber: Climber = null;
+  selectedClimber: Climber = null;
   
   constructor(private climberService: ClimberService, private roundService: RoundService) {
     this.climberService.selectedClimber$

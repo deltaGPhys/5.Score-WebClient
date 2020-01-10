@@ -2,7 +2,7 @@
 <br>
 <br>
 
-<div *ngIf="selectedClimber">
+<div *ngIf="selectedClimber" class="info">
     <label>Name: </label> {{selectedClimber.firstName}} {{selectedClimber.lastName}}<br>
     <label>Id #: </label> {{selectedClimber.id}}<br>
     <ngx-qrcode qrc-class="'canvas'" [qrc-value] = "selectedClimber.code" qrc-errorCorrectionLevel = "L">

@@ -40,6 +40,11 @@ export class JudgeService {
     return this.http.get<Judge>(this.judgeUrl+"/"+judgeId);
   }
 
+  /** GET Round associated with a judge from the server */
+  getRoundForJudge(judgeId: number): Observable<CompetitionRound> {
+    return this.http.get<CompetitionRound>(this.judgeUrl+"/single/"+judgeId);
+  }
+
   /** Change the selectedJudge variable */
   chooseJudge(id: number) {
     this.getJudge(id).subscribe(data => this.selectedJudge$.next(data));

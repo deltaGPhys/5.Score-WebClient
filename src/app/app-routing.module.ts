@@ -7,6 +7,7 @@ import { CompListComponent } from './CompComponents/comp-list/comp-list.componen
 import { RoundListComponent } from './CompComponents/round-list/round-list.component';
 import { RoundContainerComponent } from './RoundComponents/round-container/round-container.component';
 import { ScoreContainerComponent } from './ScoreComponents/score-container/score-container.component';
+import { JudgeContainerComponent } from './JudgeComponents/judge-container/judge-container.component';
 
 const routes: Routes = [
     //{ path: '', component: LoginComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
     { path: 'complist/:gymId', component: CompListComponent },
     { path: 'roundlist/:compId/:gymId', component: RoundListComponent },
     { path: 'round/:roundId', component: RoundContainerComponent },
-    { path: 'scoring/:roundId', component: ScoreContainerComponent }
+    { path: 'scoring/:roundId', component: ScoreContainerComponent },
+    { path: 'judging', component: JudgeContainerComponent },
 ];
 
 @NgModule({

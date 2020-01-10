@@ -1,0 +1,9 @@
+
+<div class="detail">
+    <h2 *ngIf="selectedRound">{{selectedRound.name}}</h2>
+    <div *ngIf="currentJudge">
+        <label>Judge: </label> {{currentJudge.name}}<br>
+        <label>ID#: </label> {{currentJudge.id}}
+    </div>
+</div>
+

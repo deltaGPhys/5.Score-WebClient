@@ -43,8 +43,13 @@ div .container .flush {
 
 table a:not(.btn),
 .table a:not(.btn) {
-     color:  #36b2d8;
+     /* color:  #36b2d8; */
+     color: rgba(0,123,255,1);
      cursor: pointer;
 }
 
+.detail {
+  font-size: large;
+
+}
 

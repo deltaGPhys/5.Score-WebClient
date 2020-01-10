@@ -1,0 +1,30 @@
+
+<div class="tablediv">
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="queue">
+            <tr *ngFor="let climber of queue">
+                <th scope="row" *ngIf="climber">{{climber.id}}</th>
+                <td>
+                    <a (click)="climberChoice(climber.id)">{{climber.firstName}}</a>
+                </td>
+                <td>
+                    <a (click)="climberChoice(climber.id)">{{climber.lastName}}</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<button (click)="addClimber(2)">Add Climber (test)</button>
+<button (click)="nextClimber()">Next Climber (test)</button>
+
+

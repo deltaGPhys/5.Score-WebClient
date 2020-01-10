@@ -46,6 +46,38 @@ export class LoginComponent implements OnInit {
         });
     
   }
+
+  onJudgeSubmit()  {
+    var name: string = this.judgeLoginForm.controls.name.value;
+    var password: string = this.judgeLoginForm.controls.password.value;
+    
+    // this.judgeService.verifyJudge(name, password)
+    //     .subscribe(user => {
+    //       if (user == null) {
+    //         this.judgeLoginForm.reset();
+    //       } else {
+    //         this.router.navigate(['/gyms']);
+    //       }
+    //     });
+    this.judgeService.chooseJudge(1);
+    this.router.navigate(['/judging']);
+    
+  }
+
+  onClimberSubmit()  {
+    var email: string = this.adminLoginForm.controls.email.value;
+    var password: string = this.adminLoginForm.controls.password.value;
+    
+    this.userService.verifyUser(email, password)
+        .subscribe(user => {
+          if (user == null) {
+            this.adminLoginForm.reset();
+          } else {
+            this.router.navigate(['/gyms']);
+          }
+        });
+    
+  }
   
   createClimberFormGroup() {
     return new FormGroup({
