@@ -1,3 +1,34 @@
 <a (click)="goBack()">Back to Zone</a><br>
 
-<h3 *ngIf="selectedRoute">{{selectedRoute.name}} - {{selectedRoute.value}}</h3>
+<!-- <label>Zone: </label> {{selectedZone.name}}<br>
+<label>Route: </label> {{selectedRoute.name}}<br>
+<label>Value: </label> {{selectedRoute.value}}<br> -->
+
+<form [formGroup]="editRouteForm" (ngSubmit)="onSubmit();">
+
+    <div>
+        <label>ID#: </label>  {{selectedRoute.id}}<br>
+        <label>Zone: </label><br>
+        <select formControlName="zone">
+            <option *ngFor="let zone of zones"  [value]="zone.id">{{zone.name}}</option>
+        </select><br><br>
+        <label>Identifier: </label> 
+        <input type="text" 
+        
+        class="form-control" 
+        formControlName="identifier"><br>
+        <label>Name: </label> 
+        <input type="text" 
+        
+        class="form-control" 
+        formControlName="name"><br>
+        <label>Point Value: </label> 
+        <input type="number" 
+        class="form-control" 
+        formControlName="value"><br>
+    </div>
+    
+    <br>
+    <button class="btn btn-primary" [disabled]="!editRouteForm.valid">Submit</button>
+    
+</form>

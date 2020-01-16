@@ -38,6 +38,15 @@ export class RouteService {
     return this.http.get<Route>(this.routeUrl+"/"+routeId);
   }
 
+  /** PUT Route: edit route properties */
+  editRoute (editedRoute: Route) {
+    return this.http.put<Route>(this.routeUrl+"/"+editedRoute.id,editedRoute)
+      .pipe(
+        tap(data => {this.selectedRoute$.next(data); this.updateRoutes(this.selectedZone.id);}),
+        catchError(this.handleError<Route>('editRoute'))
+      )
+  }
+
   /** Change the selectedRoute variable */
   chooseRoute(id: number) {
     this.getRoute(id).subscribe(data => this.selectedRoute$.next(data));
