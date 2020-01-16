@@ -26,6 +26,7 @@ export class RoundZoneListComponent implements OnInit {
 
   zoneChoice(zoneId: number) {
     this.routeService.updateRoutes(zoneId);
+    this.zoneService.chooseZone(zoneId);
     this.roundService.changeZoneWindow("routeList");
   }
 }

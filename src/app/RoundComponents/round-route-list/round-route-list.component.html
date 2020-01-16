@@ -1,5 +1,6 @@
-<h4 *ngIf="selectedZone">{{selectedZone.name}}</h4>
-<a (click)="goBack()">Back to Zones</a>
+<a (click)="goBack()">Back to Zones</a><br>
+
+<h3 *ngIf="selectedZone">{{selectedZone.name}}</h3>
 
 <table class="table table-striped">
     <thead>
@@ -11,12 +12,12 @@
     </thead>
     <tbody *ngIf="routes">
         <tr *ngFor="let route of routes">
-            <th scope="row" *ngIf="route" (click)="zoneChoice(zone.id)">{{ route.identifier }}</th>
+            <th scope="row" *ngIf="route" >{{ route.identifier }}</th>
             <td>
-                <a>{{route.name}}</a>
+                <a (click)="routeChoice(route.id)">{{route.name}}</a>
             </td>
             <td>
-                <a>{{route.value}}</a>
+                <a (click)="routeChoice(route.id)">{{route.value}}</a>
             </td>
             
         </tr>

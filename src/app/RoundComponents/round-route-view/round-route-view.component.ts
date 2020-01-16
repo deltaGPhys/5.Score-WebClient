@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RoundService } from 'src/app/services/round.service';
+import { RouteService } from 'src/app/services/route.service';
+import { Route } from 'src/app/models/route';
 
 @Component({
   selector: 'app-round-route-view',
@@ -6,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./round-route-view.component.css']
 })
 export class RoundRouteViewComponent implements OnInit {
-
+  selectedRoute: Route;
   
-
-  constructor() { }
+  constructor(private roundService: RoundService, private routeService: RouteService) {
+    this.routeService.selectedRoute$.subscribe(data => this.selectedRoute = data);
+   }
 
   ngOnInit() {
   }
 
+  goBack() {
+    this.roundService.changeZoneWindow("routeList");
+  }
 }

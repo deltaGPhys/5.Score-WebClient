@@ -16,6 +16,8 @@ export class RoundService {
   @Inject(apiUrl) private apiUrl: string;
   private compUrl: string = apiUrl+"/competitionRounds";
   selectedRound$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  selectedZone$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  selectedRoute$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
   zoneWindow$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
   peopleWindow$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
 

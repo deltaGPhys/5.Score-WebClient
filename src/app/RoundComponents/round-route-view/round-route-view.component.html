@@ -1,1 +1,3 @@
-<p>round-route-view works!</p>
+<a (click)="goBack()">Back to Zone</a><br>
+
+<h3 *ngIf="selectedRoute">{{selectedRoute.name}} - {{selectedRoute.value}}</h3>
