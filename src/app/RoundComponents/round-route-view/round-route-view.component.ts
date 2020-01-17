@@ -20,7 +20,7 @@ export class RoundRouteViewComponent implements OnInit {
   constructor(private roundService: RoundService, private routeService: RouteService, private zoneService: ZoneService) {
     this.zoneService.zones$.subscribe(data => this.zones = data);
     this.zoneService.selectedZone$.subscribe(data => this.selectedZone = data);
-    this.routeService.selectedRoute$.subscribe(data => {this.selectedRoute = data;console.log(this.zones);this.editRouteForm = this.createFormGroup();});
+    this.routeService.selectedRoute$.subscribe(data => {this.selectedRoute = data; this.editRouteForm = this.createFormGroup();});
     
    }
 

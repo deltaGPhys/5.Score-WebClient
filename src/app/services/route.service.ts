@@ -47,6 +47,15 @@ export class RouteService {
       )
   }
 
+  /** POST Route: edit route properties */
+  createRoute (newRoute: Route) {
+    return this.http.post<Route>(this.routeUrl,newRoute)
+      .pipe(
+        tap(data => {this.updateRoutes(this.selectedZone.id);}),
+        catchError(this.handleError<Route>('editRoute'))
+      )
+  }
+
   /** Change the selectedRoute variable */
   chooseRoute(id: number) {
     this.getRoute(id).subscribe(data => this.selectedRoute$.next(data));

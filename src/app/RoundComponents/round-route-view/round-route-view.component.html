@@ -11,21 +11,21 @@
         <label>Zone: </label><br>
         <select formControlName="zone">
             <option *ngFor="let zone of zones"  [value]="zone.id">{{zone.name}}</option>
-        </select><br><br>
+        </select><br>
         <label>Identifier: </label> 
         <input type="text" 
         
         class="form-control" 
-        formControlName="identifier"><br>
+        formControlName="identifier">
         <label>Name: </label> 
         <input type="text" 
         
         class="form-control" 
-        formControlName="name"><br>
+        formControlName="name">
         <label>Point Value: </label> 
         <input type="number" 
         class="form-control" 
-        formControlName="value"><br>
+        formControlName="value">
     </div>
     
     <br>
