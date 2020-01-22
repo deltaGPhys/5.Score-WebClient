@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
@@ -29,6 +29,8 @@ import { JudgeContainerComponent } from './JudgeComponents/judge-container/judge
 import { JudgeViewComponent } from './JudgeComponents/judge-view/judge-view.component';
 import { QueueListComponent } from './JudgeComponents/queue-list/queue-list.component';
 import { ScoringPaneComponent } from './JudgeComponents/scoring-pane/scoring-pane.component';
+import { LocalStorageService, Ng2Webstorage } from 'ngx-webstorage';
+import { AuthInterceptor } from './services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -63,8 +65,13 @@ import { ScoringPaneComponent } from './JudgeComponents/scoring-pane/scoring-pan
     ReactiveFormsModule,
     NgxQRCodeModule,
     ZXingScannerModule,
+    Ng2Webstorage
   ],
-  providers: [GymService],
+  providers: [
+    GymService, 
+    LocalStorageService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

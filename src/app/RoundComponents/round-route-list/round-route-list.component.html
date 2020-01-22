@@ -3,52 +3,71 @@
 
 <h3 *ngIf="selectedZone">{{selectedZone.name}}</h3>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">ID</th>
-            <th scope="col">Value</th>
-        </tr>
-    </thead>
-    <tbody *ngIf="routes">
-        <tr *ngFor="let route of routes">
-            <th scope="row" *ngIf="route" >{{ route.identifier }}</th>
-            <td>
-                <a (click)="routeChoice(route.id)">{{route.name}}</a>
-            </td>
-            <td>
-                <a (click)="routeChoice(route.id)">{{route.value}}</a>
-            </td>
-            
-        </tr>
-    </tbody>
-    </table>
+<ngb-accordion [closeOthers]="true" activeIds="routes">
+    <ngb-panel id="routes">
+        <ng-template ngbPanelTitle style="width:100%;" >  
+            <span style="float:left;" >Routes</span> 
+        </ng-template>
+        <ng-template ngbPanelContent >
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="routes">
+                    <tr *ngFor="let route of routes">
+                        <th scope="row" *ngIf="route" >{{ route.identifier }}</th>
+                        <td>
+                            <a (click)="routeChoice(route.id)">{{route.name}}</a>
+                        </td>
+                        <td>
+                            <a (click)="routeChoice(route.id)">{{route.value}}</a>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </ng-template>
+    </ngb-panel>
+    <ngb-panel id="addRoute">
+        <ng-template ngbPanelTitle style="width:100%;" >  
+            <span style="float:left;" >Add Route</span> 
+        </ng-template>
+        <ng-template ngbPanelContent>
+            <form [formGroup]="routeAddForm" (ngSubmit)="onSubmit();">
 
-    <h3>Add New Route</h3>
-    <form [formGroup]="routeAddForm" (ngSubmit)="onSubmit();">
-
-        <div>
-            <label>Zone: </label> {{selectedZone.name}}
-            <br>
-
-            <label>Identifier: </label> 
-            <input type="text" 
-            class="form-control" 
-            formControlName="identifier">
-            
-            <label>Name: </label> 
-            <input type="text" 
-            class="form-control" 
-            formControlName="name">
-            
-            <label>Point Value: </label> 
-            <input type="number" 
-            class="form-control" 
-            formControlName="value">
-        </div>
+                <div>
+                    <label>Zone: </label> {{selectedZone.name}}
+                    <br>
         
-        <br>
-        <button class="btn btn-primary" [disabled]="!routeAddForm.valid">Submit</button>
-        
-    </form>
+                    <label>Identifier: </label> 
+                    <input type="text" 
+                    class="form-control" 
+                    formControlName="identifier">
+                    
+                    <label>Name: </label> 
+                    <input type="text" 
+                    class="form-control" 
+                    formControlName="name">
+                    
+                    <label>Point Value: </label> 
+                    <input type="number" 
+                    class="form-control" 
+                    formControlName="value">
+                </div>
+                
+                <br>
+                <button class="btn btn-primary" [disabled]="!routeAddForm.valid">Submit</button>
+                
+            </form>
+            
+        </ng-template>
+    </ngb-panel>
+
+
+
+    
+    
