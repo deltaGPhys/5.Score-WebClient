@@ -24,7 +24,7 @@ export class UserService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  /** authenticate admin user from backend */
+  /** authenticate admin user from backend (fake) */
   verifyUser(email: string, password: string): Observable<User> {
     //Todo: authenticate admin user from backend
     let user = new User();

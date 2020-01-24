@@ -59,10 +59,12 @@ export class LoginComponent implements OnInit {
     //         this.router.navigate(['/gyms']);
     //       }
     //     });
-    this.userService.authenticate(name, password).subscribe(data => console.log(data));
-    this.judgeService.chooseJudge(1);
-    this.router.navigate(['/judging']);
-    
+    this.userService.authenticate(name, password).subscribe(data => 
+      {
+        console.log(data)
+        this.judgeService.chooseJudge(1);
+        this.router.navigate(['/judging']);
+      });
   }
 
   onClimberSubmit()  {
